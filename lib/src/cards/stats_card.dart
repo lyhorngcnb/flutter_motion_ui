@@ -1,121 +1,110 @@
 import 'package:flutter/material.dart';
 
-/// Statistics card for dashboards
 class StatsCard extends StatelessWidget {
   final String title;
   final String value;
   final IconData icon;
-  final Color? color;
-  final String? subtitle;
-  final String? trend;
-  final bool isPositive;
-  final VoidCallback? onTap;
+  final Color color;
+  final Color backgroundColor;
+  final bool isIncreased;
+  final String? changePercent;
 
   const StatsCard({
     super.key,
     required this.title,
     required this.value,
     required this.icon,
-    this.color,
-    this.subtitle,
-    this.trend,
-    this.isPositive = true,
-    this.onTap,
+    this.color = Colors.blue,
+    this.backgroundColor = Colors.white,
+    this.isIncreased = true,
+    this.changePercent,
   });
 
   @override
   Widget build(BuildContext context) {
-    final cardColor = color ?? Theme.of(context).colorScheme.primary;
-
-    return GestureDetector(
-      onTap: onTap,
+    return Card(
+      elevation: 4,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Container(
-        padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(16),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withAlpha((0.06 * 255).toInt()), // ✅ use withAlpha
-              blurRadius: 15,
-              offset: const Offset(0, 4),
-            ),
-          ],
+          color: backgroundColor,
+          borderRadius: BorderRadius.circular(12),
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  padding: const EdgeInsets.all(12),
-                  decoration: BoxDecoration(
-                    color: cardColor.withAlpha(10),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Icon(icon, color: cardColor, size: 24),
-                ),
-                if (trend != null)
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
                   Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 8,
-                      vertical: 4,
-                    ),
+                    padding: const EdgeInsets.all(8.0),
                     decoration: BoxDecoration(
-                      color: (isPositive ? Colors.green : Colors.red)
-                          .withAlpha(10),
+                      color: color.withOpacity(0.1),
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    child: Row(
-                      children: [
-                        Icon(
-                          isPositive ? Icons.trending_up : Icons.trending_down,
-                          size: 14,
-                          color: isPositive ? Colors.green : Colors.red,
-                        ),
-                        const SizedBox(width: 4),
-                        Text(
-                          trend!,
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w600,
-                            color: isPositive ? Colors.green : Colors.red,
-                          ),
-                        ),
-                      ],
+                    child: Icon(
+                      icon,
+                      color: color,
+                      size: 24,
                     ),
                   ),
-              ],
-            ),
-            const SizedBox(height: 16),
-            Text(
-              value,
-              style: const TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-                color: Colors.black87,
+                  if (changePercent != null)
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 8.0,
+                        vertical: 4.0,
+                      ),
+                      decoration: BoxDecoration(
+                        color: isIncreased
+                            ? Colors.green.withOpacity(0.1)
+                            : Colors.red.withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(
+                            isIncreased
+                                ? Icons.arrow_upward
+                                : Icons.arrow_downward,
+                            size: 12,
+                            color: isIncreased ? Colors.green : Colors.red,
+                          ),
+                          const SizedBox(width: 2),
+                          Text(
+                            '$changePercent%',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                              color: isIncreased ? Colors.green : Colors.red,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                ],
               ),
-            ),
-            const SizedBox(height: 4),
-            Text(
-              title,
-              style: const TextStyle(
-                fontSize: 14,
-                color: Colors.black54,
-              ),
-            ),
-            if (subtitle != null) ...[
-              const SizedBox(height: 4),
+              const SizedBox(height: 16),
               Text(
-                subtitle!,
+                title,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.grey[600],
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                value,
                 style: const TextStyle(
-                  fontSize: 12,
-                  color: Colors.black38,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black87,
                 ),
               ),
             ],
-          ],
+          ),
         ),
       ),
     );

@@ -2,7 +2,6 @@ library;
 
 // Buttons
 export 'src/buttons/motion_button.dart';
-export 'src/buttons/gradient_button.dart';
 export 'src/buttons/icon_button.dart';
 export 'src/buttons/floating_action_button.dart';
 export 'src/buttons/outlined_button.dart';

@@ -34,9 +34,9 @@ class AwesomeBottomNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final bgColor = backgroundColor ?? Colors.white;
+    final bgColor = backgroundColor ?? theme.colorScheme.surface;
     final activeColor = selectedColor ?? theme.colorScheme.primary;
-    final inactiveColor = unselectedColor ?? Colors.grey;
+    final inactiveColor = unselectedColor ?? theme.colorScheme.onSurface.withOpacity(0.5);
 
     return Container(
       height: height,
@@ -55,7 +55,7 @@ class AwesomeBottomNav extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: List.generate(
             items.length,
-            (index) => _NavItem(
+                (index) => _NavItem(
               item: items[index],
               isSelected: currentIndex == index,
               activeColor: activeColor,
@@ -154,16 +154,16 @@ class _NavItemState extends State<_NavItem>
               duration: const Duration(milliseconds: 200),
               child: widget.isSelected
                   ? Padding(
-                      padding: const EdgeInsets.only(left: 8),
-                      child: Text(
-                        widget.item.label,
-                        style: TextStyle(
-                          color: widget.activeColor,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 14,
-                        ),
-                      ),
-                    )
+                padding: const EdgeInsets.only(left: 8),
+                child: Text(
+                  widget.item.label,
+                  style: TextStyle(
+                    color: widget.activeColor,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 14,
+                  ),
+                ),
+              )
                   : const SizedBox.shrink(),
             ),
           ],
