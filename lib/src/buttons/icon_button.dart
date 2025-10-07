@@ -90,14 +90,18 @@ class _MotionIconButtonState extends State<MotionIconButton>
                 color: bgColor,
                 shape: BoxShape.circle,
                 border: widget.hasBorder
-                    ? Border.all(color: iColor.withOpacity(0.3), width: 1.5)
+                    ? Border.all(
+                  color: iColor.withAlpha((0.3 * 255).toInt()), // ✅ using withAlpha instead
+                  width: 1.5,
+                )
                     : null,
               ),
               child: Icon(
                 widget.icon,
                 size: widget.iconSize,
-                color:
-                    widget.onPressed == null ? iColor.withOpacity(0.5) : iColor,
+                color: widget.onPressed == null
+                    ? iColor.withAlpha((0.5 * 255).toInt()) // ✅ use withAlpha with int
+                    : iColor,
               ),
             ),
           );

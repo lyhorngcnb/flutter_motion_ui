@@ -47,7 +47,7 @@ class _MotionButtonState extends State<MotionButton> {
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.1),
+              color: Colors.black.withAlpha(10),
               blurRadius: _isPressed ? 2 : widget.elevation,
               offset: Offset(0, _isPressed ? 1 : 2),
             ),
