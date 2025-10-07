@@ -10,7 +10,7 @@ class ProgressBar extends StatefulWidget {
   final BorderRadiusGeometry borderRadius;
 
   const ProgressBar({
-    Key? key,
+    super.key,
     required this.progress,
     this.backgroundColor = Colors.grey,
     this.progressColor = Colors.blue,
@@ -18,13 +18,13 @@ class ProgressBar extends StatefulWidget {
     this.animationDuration = const Duration(milliseconds: 500),
     this.animationCurve = Curves.easeInOut,
     this.borderRadius = const BorderRadius.all(Radius.circular(4)),
-  }) : super(key: key);
+  });
 
   @override
-  _ProgressBarState createState() => _ProgressBarState();
+  ProgressBarState createState() => ProgressBarState();
 }
 
-class _ProgressBarState extends State<ProgressBar>
+class ProgressBarState extends State<ProgressBar>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;

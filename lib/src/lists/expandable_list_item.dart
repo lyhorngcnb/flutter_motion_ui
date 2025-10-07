@@ -20,10 +20,10 @@ class ExpandableListItem extends StatefulWidget {
   });
 
   @override
-  _ExpandableListItemState createState() => _ExpandableListItemState();
+  ExpandableListItemState createState() => ExpandableListItemState();
 }
 
-class _ExpandableListItemState extends State<ExpandableListItem>
+class ExpandableListItemState extends State<ExpandableListItem>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;

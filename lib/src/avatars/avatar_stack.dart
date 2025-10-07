@@ -9,14 +9,14 @@ class AvatarStack extends StatelessWidget {
   final double borderWidth;
 
   const AvatarStack({
-    Key? key,
+    super.key,
     required this.imageUrls,
     this.avatarSize = 40,
     this.overlapFactor = 0.7,
     this.maxAvatars = 4,
     this.borderColor = Colors.white,
     this.borderWidth = 2.0,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -43,8 +43,8 @@ class AvatarStack extends StatelessWidget {
                   ),
                 ),
                 child: CircleAvatar(
-                  // imageUrl: imageUrl,
-                  // size: avatarSize - borderWidth * 2,
+                  radius: (avatarSize - borderWidth * 2) / 2,
+                  backgroundImage: NetworkImage(imageUrl),
                 ),
               ),
             );

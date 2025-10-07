@@ -7,12 +7,12 @@ class AvatarGroup extends StatelessWidget {
   final MainAxisAlignment alignment;
 
   const AvatarGroup({
-    Key? key,
+    super.key,
     required this.avatars,
     this.avatarSize = 40,
     this.spacing = -10,
     this.alignment = MainAxisAlignment.start,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

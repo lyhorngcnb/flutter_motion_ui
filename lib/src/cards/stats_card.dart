@@ -41,7 +41,7 @@ class StatsCard extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.all(8.0),
                     decoration: BoxDecoration(
-                      color: color.withOpacity(0.1),
+                      color: color.withAlpha((0.1 * 255).toInt()),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Icon(
@@ -58,8 +58,8 @@ class StatsCard extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         color: isIncreased
-                            ? Colors.green.withOpacity(0.1)
-                            : Colors.red.withOpacity(0.1),
+                            ? Colors.green.withAlpha((0.1 * 255).toInt())
+                            : Colors.red.withAlpha((0.1 * 255).toInt()),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Row(

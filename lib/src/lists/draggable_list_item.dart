@@ -8,19 +8,19 @@ class DraggableListItem extends StatefulWidget {
   final bool isDraggable;
 
   const DraggableListItem({
-    Key? key,
+    super.key,
     required this.child,
     this.onDragStarted,
     this.onDragCompleted,
     this.onDragCancelled,
     this.isDraggable = true,
-  }) : super(key: key);
+  });
 
   @override
-  _DraggableListItemState createState() => _DraggableListItemState();
+  DraggableListItemState createState() => DraggableListItemState();
 }
 
-class _DraggableListItemState extends State<DraggableListItem> {
+class DraggableListItemState extends State<DraggableListItem> {
   bool _isDragging = false;
 
   @override

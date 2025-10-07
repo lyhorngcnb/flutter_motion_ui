@@ -9,20 +9,20 @@ class BounceAnimation extends StatefulWidget {
   final bool reverse;
 
   const BounceAnimation({
-    Key? key,
+    super.key,
     required this.child,
     this.duration = const Duration(milliseconds: 500),
     this.curve = Curves.elasticOut,
     this.scale = 0.7,
     this.repeat = false,
     this.reverse = false,
-  }) : super(key: key);
+  });
 
   @override
-  _BounceAnimationState createState() => _BounceAnimationState();
+  BounceAnimationState createState() => BounceAnimationState();
 }
 
-class _BounceAnimationState extends State<BounceAnimation>
+class BounceAnimationState extends State<BounceAnimation>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;

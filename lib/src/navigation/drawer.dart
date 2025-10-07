@@ -9,24 +9,24 @@ class MotionDrawer extends StatefulWidget {
   final Curve animationCurve;
 
   const MotionDrawer({
-    Key? key,
+    super.key,
     required this.header,
     required this.items,
     this.backgroundColor = Colors.white,
     this.width = 280,
     this.animationDuration = const Duration(milliseconds: 300),
     this.animationCurve = Curves.easeInOut,
-  }) : super(key: key);
+  });
 
   static void open(BuildContext context, MotionDrawer drawer) {
     Scaffold.of(context).openDrawer();
   }
 
   @override
-  _MotionDrawerState createState() => _MotionDrawerState();
+  MotionDrawerState createState() => MotionDrawerState();
 }
 
-class _MotionDrawerState extends State<MotionDrawer>
+class MotionDrawerState extends State<MotionDrawer>
     with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
@@ -61,20 +61,20 @@ class MotionDrawerItem extends StatefulWidget {
   final Color unselectedColor;
 
   const MotionDrawerItem({
-    Key? key,
+    super.key,
     required this.icon,
     required this.title,
     required this.onTap,
     this.isSelected = false,
     this.selectedColor = Colors.blue,
     this.unselectedColor = Colors.grey,
-  }) : super(key: key);
+  });
 
   @override
-  _MotionDrawerItemState createState() => _MotionDrawerItemState();
+  MotionDrawerItemState createState() => MotionDrawerItemState();
 }
 
-class _MotionDrawerItemState extends State<MotionDrawerItem> {
+class MotionDrawerItemState extends State<MotionDrawerItem> {
   bool _isHovered = false;
 
   @override
@@ -90,9 +90,9 @@ class _MotionDrawerItemState extends State<MotionDrawerItem> {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             decoration: BoxDecoration(
               color: widget.isSelected
-                  ? widget.selectedColor.withOpacity(0.1)
+                  ? widget.selectedColor.withAlpha((0.1 * 255).toInt())
                   : _isHovered
-                  ? Colors.grey.withOpacity(0.1)
+                  ? Colors.grey.withAlpha((0.1 * 255).toInt())
                   : Colors.transparent,
               border: widget.isSelected
                   ? Border(

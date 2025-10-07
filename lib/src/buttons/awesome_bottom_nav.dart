@@ -36,7 +36,8 @@ class AwesomeBottomNav extends StatelessWidget {
     final theme = Theme.of(context);
     final bgColor = backgroundColor ?? theme.colorScheme.surface;
     final activeColor = selectedColor ?? theme.colorScheme.primary;
-    final inactiveColor = unselectedColor ?? theme.colorScheme.onSurface.withOpacity(0.5);
+    final inactiveColor = unselectedColor ??
+        theme.colorScheme.onSurface.withAlpha(128); // 128/255 ≈ 0.5 opacity
 
     return Container(
       height: height,

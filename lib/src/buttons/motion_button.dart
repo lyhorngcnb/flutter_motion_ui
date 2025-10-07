@@ -21,10 +21,10 @@ class MotionButton extends StatefulWidget {
   });
 
   @override
-  _MotionButtonState createState() => _MotionButtonState();
+  MotionButtonState createState() => MotionButtonState();
 }
 
-class _MotionButtonState extends State<MotionButton> {
+class MotionButtonState extends State<MotionButton> {
   bool _isPressed = false;
 
   @override

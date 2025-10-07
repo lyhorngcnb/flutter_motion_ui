@@ -10,7 +10,7 @@ class PulseAnimation extends StatefulWidget {
   final bool reverse;
 
   const PulseAnimation({
-    Key? key,
+    super.key,
     required this.child,
     this.duration = const Duration(milliseconds: 1000),
     this.curve = Curves.easeInOut,
@@ -18,13 +18,13 @@ class PulseAnimation extends StatefulWidget {
     this.maxScale = 1.05,
     this.repeat = false,
     this.reverse = false,
-  }) : super(key: key);
+  });
 
   @override
-  _PulseAnimationState createState() => _PulseAnimationState();
+  PulseAnimationState createState() => PulseAnimationState();
 }
 
-class _PulseAnimationState extends State<PulseAnimation>
+class PulseAnimationState extends State<PulseAnimation>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;

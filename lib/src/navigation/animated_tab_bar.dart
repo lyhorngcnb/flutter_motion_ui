@@ -10,7 +10,7 @@ class AnimatedTabBar extends StatefulWidget {
   final Curve animationCurve;
 
   const AnimatedTabBar({
-    Key? key,
+    super.key,
     required this.tabs,
     required this.onTabChanged,
     this.backgroundColor = Colors.white,
@@ -18,13 +18,13 @@ class AnimatedTabBar extends StatefulWidget {
     this.inactiveColor = Colors.grey,
     this.animationDuration = const Duration(milliseconds: 300),
     this.animationCurve = Curves.easeInOut,
-  }) : super(key: key);
+  });
 
   @override
-  _AnimatedTabBarState createState() => _AnimatedTabBarState();
+  AnimatedTabBarState createState() => AnimatedTabBarState();
 }
 
-class _AnimatedTabBarState extends State<AnimatedTabBar>
+class AnimatedTabBarState extends State<AnimatedTabBar>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
   int _currentIndex = 0;
@@ -59,7 +59,7 @@ class _AnimatedTabBarState extends State<AnimatedTabBar>
       decoration: BoxDecoration(
         color: widget.backgroundColor,
         borderRadius: BorderRadius.circular(25),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Colors.black12,
             blurRadius: 8,
@@ -72,7 +72,7 @@ class _AnimatedTabBarState extends State<AnimatedTabBar>
         tabs: widget.tabs.asMap().entries.map((entry) {
           final index = entry.key;
           final tab = entry.value;
-          return _AnimatedTab(
+          return AnimatedTab(
             text: tab,
             isActive: index == _currentIndex,
             activeColor: widget.activeColor,
@@ -89,7 +89,7 @@ class _AnimatedTabBarState extends State<AnimatedTabBar>
   }
 }
 
-class _AnimatedTab extends StatelessWidget {
+class AnimatedTab extends StatelessWidget {
   final String text;
   final bool isActive;
   final Color activeColor;
@@ -97,15 +97,15 @@ class _AnimatedTab extends StatelessWidget {
   final Duration animationDuration;
   final Curve animationCurve;
 
-  const _AnimatedTab({
-    Key? key,
+  const AnimatedTab({
+    super.key,
     required this.text,
     required this.isActive,
     required this.activeColor,
     required this.inactiveColor,
     required this.animationDuration,
     required this.animationCurve,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

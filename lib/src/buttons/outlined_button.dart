@@ -12,7 +12,7 @@ class MotionOutlinedButton extends StatefulWidget {
   final Curve animationCurve;
 
   const MotionOutlinedButton({
-    Key? key,
+    super.key,
     required this.child,
     required this.onPressed,
     this.borderColor = Colors.blue,
@@ -22,13 +22,13 @@ class MotionOutlinedButton extends StatefulWidget {
     this.borderRadius = const BorderRadius.all(Radius.circular(8.0)),
     this.animationDuration = const Duration(milliseconds: 300),
     this.animationCurve = Curves.easeInOut,
-  }) : super(key: key);
+  });
 
   @override
-  _MotionOutlinedButtonState createState() => _MotionOutlinedButtonState();
+  MotionOutlinedButtonState createState() => MotionOutlinedButtonState();
 }
 
-class _MotionOutlinedButtonState extends State<MotionOutlinedButton> {
+class MotionOutlinedButtonState extends State<MotionOutlinedButton> {
   bool _isHovered = false;
 
   @override
@@ -45,20 +45,24 @@ class _MotionOutlinedButtonState extends State<MotionOutlinedButton> {
             width: widget.borderWidth,
           ),
           borderRadius: widget.borderRadius,
-          color: _isHovered ? widget.hoverColor.withOpacity(0.1) : Colors.transparent,
+          color: _isHovered
+              ? widget.hoverColor.withAlpha((0.1 * 255).toInt()) // 10% opacity
+              : Colors.transparent,
         ),
         child: Material(
           color: Colors.transparent,
           child: InkWell(
             onTap: widget.onPressed,
             borderRadius: widget.borderRadius,
-            hoverColor: widget.hoverColor.withOpacity(0.2),
-            splashColor: widget.hoverColor.withOpacity(0.3),
+            hoverColor: widget.hoverColor.withAlpha((0.2 * 255).toInt()), // 20%
+            splashColor: widget.hoverColor.withAlpha((0.3 * 255).toInt()), // 30%
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
               child: DefaultTextStyle(
                 style: TextStyle(
-                  color: _isHovered ? widget.hoverColor : widget.textColor,
+                  color: _isHovered
+                      ? widget.hoverColor
+                      : widget.textColor,
                   fontWeight: FontWeight.w600,
                 ),
                 child: widget.child,

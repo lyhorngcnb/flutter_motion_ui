@@ -13,7 +13,7 @@ class MotionSlider extends StatefulWidget {
   final String? label;
 
   const MotionSlider({
-    Key? key,
+    super.key,
     required this.value,
     required this.min,
     required this.max,
@@ -24,13 +24,13 @@ class MotionSlider extends StatefulWidget {
     this.thumbColor = Colors.white,
     this.showValue = true,
     this.label,
-  }) : super(key: key);
+  });
 
   @override
-  _MotionSliderState createState() => _MotionSliderState();
+  MotionSliderState createState() => MotionSliderState();
 }
 
-class _MotionSliderState extends State<MotionSlider> {
+class MotionSliderState extends State<MotionSlider> {
   double _currentValue = 0.0;
   bool _isDragging = false;
 
@@ -88,7 +88,7 @@ class _MotionSliderState extends State<MotionSlider> {
                 thumbShape: _CustomThumbShape(
                   isDragging: _isDragging,
                 ),
-                overlayColor: widget.activeColor.withOpacity(0.1),
+                overlayColor: widget.activeColor.withAlpha((0.1 * 255).toInt()),
                 overlayShape: const RoundSliderOverlayShape(overlayRadius: 16),
               ),
               child: Slider(

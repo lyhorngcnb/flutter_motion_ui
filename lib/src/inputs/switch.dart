@@ -11,7 +11,7 @@ class MotionSwitch extends StatefulWidget {
   final String? label;
 
   const MotionSwitch({
-    Key? key,
+    super.key,
     required this.value,
     required this.onChanged,
     this.activeColor = Colors.blue,
@@ -20,13 +20,13 @@ class MotionSwitch extends StatefulWidget {
     this.animationDuration = const Duration(milliseconds: 300),
     this.animationCurve = Curves.easeInOut,
     this.label,
-  }) : super(key: key);
+  });
 
   @override
-  _MotionSwitchState createState() => _MotionSwitchState();
+  MotionSwitchState createState() => MotionSwitchState();
 }
 
-class _MotionSwitchState extends State<MotionSwitch>
+class MotionSwitchState extends State<MotionSwitch>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _thumbAnimation;
@@ -124,7 +124,7 @@ class _MotionSwitchState extends State<MotionSwitch>
                     decoration: BoxDecoration(
                       color: widget.thumbColor,
                       shape: BoxShape.circle,
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                           color: Colors.black12,
                           blurRadius: 4,

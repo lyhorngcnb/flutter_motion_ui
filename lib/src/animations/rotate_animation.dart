@@ -10,7 +10,7 @@ class RotateAnimation extends StatefulWidget {
   final double end;
 
   const RotateAnimation({
-    Key? key,
+    super.key,
     required this.child,
     this.duration = const Duration(milliseconds: 1000),
     this.curve = Curves.linear,
@@ -18,13 +18,13 @@ class RotateAnimation extends StatefulWidget {
     this.reverse = false,
     this.begin = 0.0,
     this.end = 1.0,
-  }) : super(key: key);
+  });
 
   @override
-  _RotateAnimationState createState() => _RotateAnimationState();
+  RotateAnimationState createState() => RotateAnimationState();
 }
 
-class _RotateAnimationState extends State<RotateAnimation>
+class RotateAnimationState extends State<RotateAnimation>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;

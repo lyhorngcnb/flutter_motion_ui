@@ -7,18 +7,18 @@ class FlipCard extends StatefulWidget {
   final Curve flipCurve;
 
   const FlipCard({
-    Key? key,
+    super.key,
     required this.front,
     required this.back,
     this.flipDuration = const Duration(milliseconds: 600),
     this.flipCurve = Curves.easeInOut,
-  }) : super(key: key);
+  });
 
   @override
-  _FlipCardState createState() => _FlipCardState();
+  FlipCardState createState() => FlipCardState();
 }
 
-class _FlipCardState extends State<FlipCard> with SingleTickerProviderStateMixin {
+class FlipCardState extends State<FlipCard> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
   bool _isFront = true;

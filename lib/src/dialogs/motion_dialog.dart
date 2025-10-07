@@ -10,7 +10,7 @@ class MotionDialog extends StatelessWidget {
   final BorderRadiusGeometry borderRadius;
 
   const MotionDialog({
-    Key? key,
+    super.key,
     required this.title,
     required this.content,
     required this.actions,
@@ -18,7 +18,7 @@ class MotionDialog extends StatelessWidget {
     this.titleColor = Colors.black87,
     this.contentColor = Colors.black54,
     this.borderRadius = const BorderRadius.all(Radius.circular(16)),
-  }) : super(key: key);
+  });
 
   static void show({
     required BuildContext context,

@@ -12,7 +12,7 @@ class CircleAvatar extends StatelessWidget {
   final double borderWidth;
 
   const CircleAvatar({
-    Key? key,
+    super.key,
     this.imageUrl,
     this.text,
     this.size = 40,
@@ -22,7 +22,7 @@ class CircleAvatar extends StatelessWidget {
     this.showBorder = false,
     this.borderColor = Colors.white,
     this.borderWidth = 2.0,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

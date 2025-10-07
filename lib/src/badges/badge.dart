@@ -10,7 +10,7 @@ class Badge extends StatelessWidget {
   final bool showBadge;
 
   const Badge({
-    Key? key,
+    super.key,
     required this.child,
     this.text,
     this.backgroundColor = Colors.red,
@@ -18,7 +18,7 @@ class Badge extends StatelessWidget {
     this.size = 16,
     this.position = BadgePosition.topEnd,
     this.showBadge = true,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

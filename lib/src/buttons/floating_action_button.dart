@@ -11,7 +11,7 @@ class MotionFloatingActionButton extends StatefulWidget {
   final Curve animationCurve;
 
   const MotionFloatingActionButton({
-    Key? key,
+    super.key,
     required this.child,
     required this.onPressed,
     this.backgroundColor = Colors.blue,
@@ -20,14 +20,14 @@ class MotionFloatingActionButton extends StatefulWidget {
     this.elevation = 6.0,
     this.animationDuration = const Duration(milliseconds: 300),
     this.animationCurve = Curves.easeInOut,
-  }) : super(key: key);
+  });
 
   @override
-  _MotionFloatingActionButtonState createState() =>
-      _MotionFloatingActionButtonState();
+  MotionFloatingActionButtonState createState() =>
+      MotionFloatingActionButtonState();
 }
 
-class _MotionFloatingActionButtonState
+class MotionFloatingActionButtonState
     extends State<MotionFloatingActionButton> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;

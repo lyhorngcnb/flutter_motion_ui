@@ -13,7 +13,7 @@ class ChoiceChip extends StatefulWidget {
   final Curve animationCurve;
 
   const ChoiceChip({
-    Key? key,
+    super.key,
     required this.label,
     required this.selected,
     required this.onSelected,
@@ -24,13 +24,13 @@ class ChoiceChip extends StatefulWidget {
     this.avatar,
     this.animationDuration = const Duration(milliseconds: 300),
     this.animationCurve = Curves.easeInOut,
-  }) : super(key: key);
+  });
 
   @override
-  _ChoiceChipState createState() => _ChoiceChipState();
+  ChoiceChipState createState() => ChoiceChipState();
 }
 
-class _ChoiceChipState extends State<ChoiceChip> {
+class ChoiceChipState extends State<ChoiceChip> {
   bool _isHovered = false;
 
   void _onTap() {
@@ -50,9 +50,9 @@ class _ChoiceChipState extends State<ChoiceChip> {
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           decoration: BoxDecoration(
             color: widget.selected
-                ? widget.selectedColor.withOpacity(0.1)
+                ? widget.selectedColor.withAlpha((0.1 * 255) .toInt())
                 : _isHovered
-                ? widget.backgroundColor.withOpacity(0.1)
+                ? widget.backgroundColor.withAlpha((0.1 * 255).toInt())
                 : Colors.transparent,
             borderRadius: BorderRadius.circular(8),
             border: Border.all(

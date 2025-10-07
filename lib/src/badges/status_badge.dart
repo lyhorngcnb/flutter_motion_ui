@@ -7,12 +7,12 @@ class StatusBadge extends StatelessWidget {
   final TextStyle? textStyle;
 
   const StatusBadge({
-    Key? key,
+    super.key,
     required this.text,
     this.type = StatusBadgeType.info,
     this.color,
     this.textStyle,
-  }) : super(key: key);
+  });
 
   Color _getBackgroundColor(BuildContext context) {
     if (color != null) return color!;

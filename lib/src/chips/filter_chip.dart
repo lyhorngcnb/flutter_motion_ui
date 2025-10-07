@@ -13,7 +13,7 @@ class FilterChip extends StatefulWidget {
   final Curve animationCurve;
 
   const FilterChip({
-    Key? key,
+    super.key,
     required this.label,
     required this.selected,
     required this.onSelected,
@@ -24,13 +24,13 @@ class FilterChip extends StatefulWidget {
     this.icon,
     this.animationDuration = const Duration(milliseconds: 300),
     this.animationCurve = Curves.easeInOut,
-  }) : super(key: key);
+  });
 
   @override
-  _FilterChipState createState() => _FilterChipState();
+  FilterChipState createState() => FilterChipState();
 }
 
-class _FilterChipState extends State<FilterChip> {
+class FilterChipState extends State<FilterChip> {
   bool _isHovered = false;
 
   void _onTap() {
@@ -52,7 +52,7 @@ class _FilterChipState extends State<FilterChip> {
             color: widget.selected
                 ? widget.selectedColor
                 : _isHovered
-                ? widget.backgroundColor.withOpacity(0.8)
+                ? widget.backgroundColor.withAlpha((0.8 * 255).toInt())
                 : widget.backgroundColor,
             borderRadius: BorderRadius.circular(20),
             border: Border.all(

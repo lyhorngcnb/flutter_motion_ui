@@ -9,23 +9,22 @@ class SwipeableListItem extends StatefulWidget {
   final double swipeThreshold;
 
   const SwipeableListItem({
-    Key? key,
+    super.key,
     required this.child,
     this.leftAction,
     this.rightAction,
     this.onSwipeLeft,
     this.onSwipeRight,
     this.swipeThreshold = 100.0,
-  }) : super(key: key);
+  });
 
   @override
-  _SwipeableListItemState createState() => _SwipeableListItemState();
+  SwipeableListItemState createState() => SwipeableListItemState();
 }
 
-class _SwipeableListItemState extends State<SwipeableListItem>
+class SwipeableListItemState extends State<SwipeableListItem>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  late Animation<Offset> _animation;
   double _dragOffset = 0.0;
 
   @override
@@ -35,13 +34,6 @@ class _SwipeableListItemState extends State<SwipeableListItem>
       duration: const Duration(milliseconds: 300),
       vsync: this,
     );
-    _animation = Tween<Offset>(
-      begin: Offset.zero,
-      end: Offset.zero,
-    ).animate(CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeOut,
-    ));
   }
 
   @override

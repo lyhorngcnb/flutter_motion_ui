@@ -11,7 +11,7 @@ class MotionAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double height;
 
   const MotionAppBar({
-    Key? key,
+    super.key,
     required this.title,
     this.actions,
     this.backgroundColor = Colors.white,
@@ -20,7 +20,7 @@ class MotionAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.centerTitle = true,
     this.leading,
     this.height = kToolbarHeight,
-  }) : super(key: key);
+  });
 
   @override
   Size get preferredSize => Size.fromHeight(height);
@@ -46,8 +46,8 @@ class MotionAppBar extends StatelessWidget implements PreferredSizeWidget {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              backgroundColor.withOpacity(0.9),
-              backgroundColor.withOpacity(0.7),
+              backgroundColor.withAlpha((0.9 * 255).toInt()),
+              backgroundColor.withAlpha((0.7 * 255).toInt()),
             ],
           ),
         ),

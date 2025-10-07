@@ -8,19 +8,19 @@ class ShimmerAnimation extends StatefulWidget {
   final bool enabled;
 
   const ShimmerAnimation({
-    Key? key,
+    super.key,
     required this.child,
     this.duration = const Duration(milliseconds: 1500),
     this.baseColor = const Color(0xFFE0E0E0),
     this.highlightColor = const Color(0xFFF5F5F5),
     this.enabled = true,
-  }) : super(key: key);
+  });
 
   @override
-  _ShimmerAnimationState createState() => _ShimmerAnimationState();
+  ShimmerAnimationState createState() => ShimmerAnimationState();
 }
 
-class _ShimmerAnimationState extends State<ShimmerAnimation>
+class ShimmerAnimationState extends State<ShimmerAnimation>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;

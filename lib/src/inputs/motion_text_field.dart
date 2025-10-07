@@ -17,7 +17,7 @@ class MotionTextField extends StatefulWidget {
   final Curve animationCurve;
 
   const MotionTextField({
-    Key? key,
+    super.key,
     this.controller,
     required this.labelText,
     this.hintText,
@@ -32,13 +32,13 @@ class MotionTextField extends StatefulWidget {
     this.errorBorderColor = Colors.red,
     this.animationDuration = const Duration(milliseconds: 300),
     this.animationCurve = Curves.easeInOut,
-  }) : super(key: key);
+  });
 
   @override
-  _MotionTextFieldState createState() => _MotionTextFieldState();
+  MotionTextFieldState createState() => MotionTextFieldState();
 }
 
-class _MotionTextFieldState extends State<MotionTextField> {
+class MotionTextFieldState extends State<MotionTextField> {
   bool _isFocused = false;
   bool _hasError = false;
 

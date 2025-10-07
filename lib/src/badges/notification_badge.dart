@@ -11,14 +11,14 @@ class NotificationBadge extends StatelessWidget {
   final BadgePosition position;
 
   const NotificationBadge({
-    Key? key,
+    super.key,
     required this.count,
     this.size = 20,
     this.backgroundColor = Colors.red,
     this.textColor = Colors.white,
     this.maxCount = 99,
     this.position = BadgePosition.topEnd,
-  }) : super(key: key);
+  });
 
   String get _displayText {
     if (count <= 0) return '';
@@ -38,7 +38,7 @@ class NotificationBadge extends StatelessWidget {
       decoration: BoxDecoration(
         color: backgroundColor,
         shape: BoxShape.circle,
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Colors.black12,
             blurRadius: 4,

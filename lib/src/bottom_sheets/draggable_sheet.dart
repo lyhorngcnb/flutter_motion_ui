@@ -9,7 +9,7 @@ class DraggableSheet extends StatefulWidget {
   final BorderRadiusGeometry borderRadius;
 
   const DraggableSheet({
-    Key? key,
+    super.key,
     required this.child,
     this.initialChildSize = 0.5,
     this.minChildSize = 0.25,
@@ -18,7 +18,7 @@ class DraggableSheet extends StatefulWidget {
     this.borderRadius = const BorderRadius.vertical(
       top: Radius.circular(16),
     ),
-  }) : super(key: key);
+  });
 
   static void show({
     required BuildContext context,
@@ -33,20 +33,20 @@ class DraggableSheet extends StatefulWidget {
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
       builder: (context) => DraggableSheet(
-        child: child,
         initialChildSize: initialChildSize,
         minChildSize: minChildSize,
         maxChildSize: maxChildSize,
         backgroundColor: backgroundColor,
+        child: child,
       ),
     );
   }
 
   @override
-  _DraggableSheetState createState() => _DraggableSheetState();
+  DraggableSheetState createState() => DraggableSheetState();
 }
 
-class _DraggableSheetState extends State<DraggableSheet> {
+class DraggableSheetState extends State<DraggableSheet> {
   late DraggableScrollableController _controller;
 
   @override
@@ -73,7 +73,7 @@ class _DraggableSheetState extends State<DraggableSheet> {
           decoration: BoxDecoration(
             color: widget.backgroundColor,
             borderRadius: widget.borderRadius,
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 color: Colors.black26,
                 blurRadius: 16,

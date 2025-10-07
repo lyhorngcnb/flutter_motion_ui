@@ -11,7 +11,7 @@ class DotsIndicator extends StatefulWidget {
   final Curve animationCurve;
 
   const DotsIndicator({
-    Key? key,
+    super.key,
     required this.dotsCount,
     required this.currentDot,
     this.activeColor = Colors.blue,
@@ -20,13 +20,13 @@ class DotsIndicator extends StatefulWidget {
     this.activeDotSize = 12.0,
     this.animationDuration = const Duration(milliseconds: 300),
     this.animationCurve = Curves.easeInOut,
-  }) : super(key: key);
+  });
 
   @override
-  _DotsIndicatorState createState() => _DotsIndicatorState();
+  DotsIndicatorState createState() => DotsIndicatorState();
 }
 
-class _DotsIndicatorState extends State<DotsIndicator> {
+class DotsIndicatorState extends State<DotsIndicator> {
   @override
   Widget build(BuildContext context) {
     return Row(

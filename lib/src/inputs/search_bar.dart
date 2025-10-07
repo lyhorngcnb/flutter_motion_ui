@@ -9,20 +9,20 @@ class MotionSearchBar extends StatefulWidget {
   final Color textColor;
 
   const MotionSearchBar({
-    Key? key,
+    super.key,
     required this.onSearch,
     this.hintText = 'Search...',
     this.animationDuration = const Duration(milliseconds: 300),
     this.animationCurve = Curves.easeInOut,
     this.backgroundColor = Colors.white,
     this.textColor = Colors.black87,
-  }) : super(key: key);
+  });
 
   @override
-  _MotionSearchBarState createState() => _MotionSearchBarState();
+  MotionSearchBarState createState() => MotionSearchBarState();
 }
 
-class _MotionSearchBarState extends State<MotionSearchBar> {
+class MotionSearchBarState extends State<MotionSearchBar> {
   final TextEditingController _controller = TextEditingController();
   bool _isExpanded = false;
 
@@ -49,7 +49,7 @@ class _MotionSearchBarState extends State<MotionSearchBar> {
       decoration: BoxDecoration(
         color: widget.backgroundColor,
         borderRadius: BorderRadius.circular(24),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Colors.black12,
             blurRadius: 8,
@@ -74,7 +74,7 @@ class _MotionSearchBarState extends State<MotionSearchBar> {
                 decoration: InputDecoration(
                   hintText: widget.hintText,
                   border: InputBorder.none,
-                  hintStyle: TextStyle(color: widget.textColor.withOpacity(0.6)),
+                  hintStyle: TextStyle(color: widget.textColor.withAlpha((0.6 * 255).toInt())),
                 ),
                 style: TextStyle(color: widget.textColor),
               ),

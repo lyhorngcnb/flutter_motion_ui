@@ -9,17 +9,17 @@ class NotificationBanner extends StatefulWidget {
   final bool showCloseButton;
 
   const NotificationBanner({
-    Key? key,
+    super.key,
     required this.title,
     required this.message,
     this.type = NotificationBannerType.info,
     this.onClose,
     this.duration = const Duration(seconds: 5),
     this.showCloseButton = true,
-  }) : super(key: key);
+  });
 
   @override
-  _NotificationBannerState createState() => _NotificationBannerState();
+  NotificationBannerState createState() => NotificationBannerState();
 }
 
 enum NotificationBannerType {
@@ -29,7 +29,7 @@ enum NotificationBannerType {
   info,
 }
 
-class _NotificationBannerState extends State<NotificationBanner>
+class NotificationBannerState extends State<NotificationBanner>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Offset> _slideAnimation;

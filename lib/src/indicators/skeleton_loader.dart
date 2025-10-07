@@ -9,20 +9,20 @@ class SkeletonLoader extends StatefulWidget {
   final Duration duration;
 
   const SkeletonLoader({
-    Key? key,
+    super.key,
     required this.width,
     required this.height,
     this.borderRadius = const BorderRadius.all(Radius.circular(4)),
     this.baseColor = const Color(0xFFE0E0E0),
     this.highlightColor = const Color(0xFFF5F5F5),
     this.duration = const Duration(milliseconds: 1500),
-  }) : super(key: key);
+  });
 
   @override
-  _SkeletonLoaderState createState() => _SkeletonLoaderState();
+  SkeletonLoaderState createState() => SkeletonLoaderState();
 }
 
-class _SkeletonLoaderState extends State<SkeletonLoader>
+class SkeletonLoaderState extends State<SkeletonLoader>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;

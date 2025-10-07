@@ -8,12 +8,12 @@ class LoadingDialog extends StatelessWidget {
   final Color spinnerColor;
 
   const LoadingDialog({
-    Key? key,
+    super.key,
     this.message = 'Loading...',
     this.backgroundColor = Colors.white,
     this.textColor = Colors.black87,
     this.spinnerColor = Colors.blue,
-  }) : super(key: key);
+  });
 
   static void show({
     required BuildContext context,

@@ -7,12 +7,12 @@ class MenuSheet extends StatelessWidget {
   final Color textColor;
 
   const MenuSheet({
-    Key? key,
+    super.key,
     required this.title,
     required this.items,
     this.backgroundColor = Colors.white,
     this.textColor = Colors.black87,
-  }) : super(key: key);
+  });
 
   static void show({
     required BuildContext context,
@@ -59,7 +59,7 @@ class MenuSheet extends StatelessWidget {
               ),
             ),
             // Items
-            ...items.map((item) => _MenuSheetItemWidget(
+            ...items.map((item) => MenuSheetItemWidget(
               item: item,
               textColor: textColor,
             )),
@@ -69,7 +69,7 @@ class MenuSheet extends StatelessWidget {
               height: 6,
               color: Colors.grey[200],
             ),
-            _MenuSheetItemWidget(
+            MenuSheetItemWidget(
               item: MenuSheetItem(
                 text: 'Cancel',
                 icon: Icons.close,
@@ -99,15 +99,15 @@ class MenuSheetItem {
   });
 }
 
-class _MenuSheetItemWidget extends StatelessWidget {
+class MenuSheetItemWidget extends StatelessWidget {
   final MenuSheetItem item;
   final Color textColor;
 
-  const _MenuSheetItemWidget({
-    Key? key,
+  const MenuSheetItemWidget({
+    super.key,
     required this.item,
     required this.textColor,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -126,7 +126,7 @@ class _MenuSheetItemWidget extends StatelessWidget {
                 item.icon,
                 color: item.isDestructive
                     ? Colors.red
-                    : textColor.withOpacity(0.7),
+                    : textColor.withAlpha((0.7 * 255).toInt()), // 70% opacity
                 size: 24,
               ),
               const SizedBox(width: 16),

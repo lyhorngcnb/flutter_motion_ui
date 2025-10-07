@@ -12,7 +12,7 @@ class OTPInput extends StatefulWidget {
   final double fieldHeight;
 
   const OTPInput({
-    Key? key,
+    super.key,
     this.length = 6,
     required this.onCompleted,
     this.borderColor = Colors.grey,
@@ -21,15 +21,16 @@ class OTPInput extends StatefulWidget {
     this.textStyle = const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
     this.fieldWidth = 50,
     this.fieldHeight = 50,
-  }) : super(key: key);
+  });
 
   @override
-  _OTPInputState createState() => _OTPInputState();
+  OTPInputState createState() => OTPInputState();
 }
 
-class _OTPInputState extends State<OTPInput> {
+class OTPInputState extends State<OTPInput> {
   late List<FocusNode> _focusNodes;
   late List<TextEditingController> _controllers;
+  // ignore: unused_field
   String _otpCode = '';
 
   @override
@@ -74,16 +75,24 @@ class _OTPInputState extends State<OTPInput> {
 
   void _onKey(RawKeyEvent event, int index) {
     if (event is RawKeyDownEvent) {
+      // Handle backspace
       if (event.logicalKey == LogicalKeyboardKey.backspace) {
-        if (_controllers[index].text.isEmpty && index > 0) {
-          _focusNodes[index - 1].requestFocus();
-          _controllers[index - 1].clear();
+        final currentController = _controllers[index];
+
+        if (currentController.text.isEmpty) {
+          // Move to previous field if not the first
+          if (index > 0) {
+            _focusNodes[index - 1].requestFocus();
+            _controllers[index - 1].clear();
+          }
         } else {
-          _controllers[index].clear();
+          // Clear current field
+          currentController.clear();
         }
       }
     }
   }
+
 
   @override
   void dispose() {

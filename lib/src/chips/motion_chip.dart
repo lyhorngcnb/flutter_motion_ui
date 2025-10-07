@@ -15,7 +15,7 @@ class MotionChip extends StatefulWidget {
   final Curve animationCurve;
 
   const MotionChip({
-    Key? key,
+    super.key,
     required this.label,
     this.selected = false,
     this.onSelected,
@@ -28,13 +28,13 @@ class MotionChip extends StatefulWidget {
     this.onDeleted,
     this.animationDuration = const Duration(milliseconds: 300),
     this.animationCurve = Curves.easeInOut,
-  }) : super(key: key);
+  });
 
   @override
-  _MotionChipState createState() => _MotionChipState();
+  MotionChipState createState() => MotionChipState();
 }
 
-class _MotionChipState extends State<MotionChip> {
+class MotionChipState extends State<MotionChip> {
   bool _isHovered = false;
 
   void _onTap() {
@@ -56,7 +56,7 @@ class _MotionChipState extends State<MotionChip> {
             color: widget.selected
                 ? widget.selectedColor
                 : _isHovered
-                ? widget.backgroundColor.withOpacity(0.8)
+                ? widget.backgroundColor.withAlpha((0.8 * 255).toInt())
                 : widget.backgroundColor,
             borderRadius: BorderRadius.circular(20),
             border: widget.selected
