@@ -10,7 +10,7 @@ class MotionButton extends StatefulWidget {
   final double elevation;
 
   const MotionButton({
-    Key? key,
+    super.key,
     required this.onPressed,
     required this.child,
     this.backgroundColor,
@@ -18,7 +18,7 @@ class MotionButton extends StatefulWidget {
     this.animationDuration = const Duration(milliseconds: 200),
     this.animationCurve = Curves.easeInOut,
     this.elevation = 2.0,
-  }) : super(key: key);
+  });
 
   @override
   _MotionButtonState createState() => _MotionButtonState();

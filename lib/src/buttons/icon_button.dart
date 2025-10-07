@@ -31,6 +31,7 @@ class _MotionIconButtonState extends State<MotionIconButton>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
+  // ignore: unused_field
   bool _isPressed = false;
 
   @override

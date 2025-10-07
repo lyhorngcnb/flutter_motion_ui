@@ -1,4 +1,4 @@
-library flutter_motion_ui;
+library;
 
 // Buttons
 export 'src/buttons/motion_button.dart';
