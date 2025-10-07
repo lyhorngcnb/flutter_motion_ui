@@ -71,7 +71,7 @@ class _MotionIconButtonState extends State<MotionIconButton>
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final bgColor =
-        widget.backgroundColor ?? theme.colorScheme.primary.withOpacity(0.1);
+        widget.backgroundColor ?? theme.colorScheme.primary.withAlpha(10);
     final iColor = widget.iconColor ?? theme.colorScheme.primary;
 
     Widget button = GestureDetector(

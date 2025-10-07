@@ -44,7 +44,7 @@ class AwesomeBottomNav extends StatelessWidget {
         color: bgColor,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
+            color: Colors.black.withAlpha(10),
             blurRadius: 20,
             offset: const Offset(0, -5),
           ),
@@ -133,7 +133,7 @@ class _NavItemState extends State<_NavItem>
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         decoration: BoxDecoration(
           color: widget.isSelected
-              ? widget.activeColor.withOpacity(0.1)
+              ? widget.activeColor.withAlpha(10)
               : Colors.transparent,
           borderRadius: BorderRadius.circular(20),
         ),

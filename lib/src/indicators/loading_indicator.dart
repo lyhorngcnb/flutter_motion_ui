@@ -165,7 +165,7 @@ class _PulseLoader extends StatelessWidget {
             width: size,
             height: size,
             decoration: BoxDecoration(
-              color: color.withOpacity(0.7 + (scale * 0.3)),
+              color: Colors.blue.withAlpha((10 + (scale * 0.3 * 255)).clamp(0, 255).toInt()),
               shape: BoxShape.circle,
             ),
           ),
