@@ -1,6 +1,6 @@
 name: flutter_motion_ui
 description: "A beautiful collection of 80+ animated Flutter components with smooth motions and modern design trends. Includes buttons, cards, animations, navigation, and more for building stunning Flutter applications."
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/lyhorngcnb/flutter_motion_ui
 repository: https://github.com/lyhorngcnb/flutter_motion_ui
 issue_tracker: https://github.com/lyhorngcnb/flutter_motion_ui/issues
