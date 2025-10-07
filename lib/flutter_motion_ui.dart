@@ -16,7 +16,7 @@ export 'src/cards/flip_card.dart';
 
 // Lists
 export 'src/lists/animated_list_item.dart';
-export 'src/lists/swipeable_list_item.dart';
+export 'src/lists/swipeable_lits_item.dart';
 export 'src/lists/expandable_list_item.dart';
 export 'src/lists/draggable_list_item.dart';
 
