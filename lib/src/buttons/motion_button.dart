@@ -31,7 +31,8 @@ class _MotionButtonState extends State<MotionButton> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final backgroundColor = widget.backgroundColor ?? theme.primaryColor;
-    final foregroundColor = widget.foregroundColor ?? theme.colorScheme.onPrimary;
+    final foregroundColor =
+        widget.foregroundColor ?? theme.colorScheme.onPrimary;
 
     return GestureDetector(
       onTapDown: (_) => setState(() => _isPressed = true),

@@ -70,7 +70,8 @@ class _MotionIconButtonState extends State<MotionIconButton>
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final bgColor = widget.backgroundColor ?? theme.colorScheme.primary.withOpacity(0.1);
+    final bgColor =
+        widget.backgroundColor ?? theme.colorScheme.primary.withOpacity(0.1);
     final iColor = widget.iconColor ?? theme.colorScheme.primary;
 
     Widget button = GestureDetector(
@@ -95,7 +96,8 @@ class _MotionIconButtonState extends State<MotionIconButton>
               child: Icon(
                 widget.icon,
                 size: widget.iconSize,
-                color: widget.onPressed == null ? iColor.withOpacity(0.5) : iColor,
+                color:
+                    widget.onPressed == null ? iColor.withOpacity(0.5) : iColor,
               ),
             ),
           );

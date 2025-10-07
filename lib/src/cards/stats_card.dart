@@ -70,9 +70,7 @@ class StatsCard extends StatelessWidget {
                     child: Row(
                       children: [
                         Icon(
-                          isPositive
-                              ? Icons.trending_up
-                              : Icons.trending_down,
+                          isPositive ? Icons.trending_up : Icons.trending_down,
                           size: 14,
                           color: isPositive ? Colors.green : Colors.red,
                         ),

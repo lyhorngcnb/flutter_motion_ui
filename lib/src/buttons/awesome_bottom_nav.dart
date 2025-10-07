@@ -55,7 +55,7 @@ class AwesomeBottomNav extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: List.generate(
             items.length,
-                (index) => _NavItem(
+            (index) => _NavItem(
               item: items[index],
               isSelected: currentIndex == index,
               activeColor: activeColor,
@@ -88,7 +88,8 @@ class _NavItem extends StatefulWidget {
   State<_NavItem> createState() => _NavItemState();
 }
 
-class _NavItemState extends State<_NavItem> with SingleTickerProviderStateMixin {
+class _NavItemState extends State<_NavItem>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
 
@@ -143,7 +144,9 @@ class _NavItemState extends State<_NavItem> with SingleTickerProviderStateMixin 
               scale: _scaleAnimation,
               child: Icon(
                 widget.item.icon,
-                color: widget.isSelected ? widget.activeColor : widget.inactiveColor,
+                color: widget.isSelected
+                    ? widget.activeColor
+                    : widget.inactiveColor,
                 size: 24,
               ),
             ),
@@ -151,16 +154,16 @@ class _NavItemState extends State<_NavItem> with SingleTickerProviderStateMixin 
               duration: const Duration(milliseconds: 200),
               child: widget.isSelected
                   ? Padding(
-                padding: const EdgeInsets.only(left: 8),
-                child: Text(
-                  widget.item.label,
-                  style: TextStyle(
-                    color: widget.activeColor,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 14,
-                  ),
-                ),
-              )
+                      padding: const EdgeInsets.only(left: 8),
+                      child: Text(
+                        widget.item.label,
+                        style: TextStyle(
+                          color: widget.activeColor,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 14,
+                        ),
+                      ),
+                    )
                   : const SizedBox.shrink(),
             ),
           ],
